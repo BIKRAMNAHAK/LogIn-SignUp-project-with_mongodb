@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Admin Dashboard</title>
+    <!--bootstrsp icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--bootstrsp css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span><i class="bi bi-feather fs-5 text-white"></i></span>
+            <h2>DarkPan</h2>
+        </div>
+        <div class="user-info">
+            <img src="images/10-profile-picture-ideas-to-make-you-stand-out.jpg" alt="User Image" class="user-avatar">
+            <div class="user-name">
+                <p><%=message.name %></p>
+                <span><%=message.email %></span>
+            </div>
+        </div>
+        <ul class="menu">
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Elements</a></li>
+            <li><a href="#">Widgets</a></li>
+            <li><a href="#">Forms</a></li>
+            <li><a href="#">Tables</a></li>
+            <li><a href="#">Charts</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <input type="search" placeholder="Search">
+            <div class="top-icons">
+                <a href="#" class="text-decoration-none text-white">Message</a>
+                <a href="#" class="text-decoration-none text-white">Notification</a>
+                
+                
+                <div class="dropdown d-flex">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="#" class="text-decoration-none text-white">User</a>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="/profile-view">Profile</a></li>
+      
+                      
+                      <hr>
+                      <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </header>
+
+
+        <div class="notification">
+            <p>wellcome ... <%=message.name %></p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <section class="dashboard-cards">
+            <div class="card">
+                <h4>Today's Sale</h4>
+                <p>$1234</p>
+            </div>
+            <div class="card">
+                <h4>Total Sale</h4>
+                <p>$1234</p>
+            </div>
+            <div class="card">
+                <h4>Today's Revenue</h4>
+                <p>$1234</p>
+            </div>
+            <div class="card">
+                <h4>Total Revenue</h4>
+                <p>$1234</p>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart">
+                <h4>Worldwide Sales</h4>
+                <div id="bar-chart"></div> <!-- ApexChart will render here -->
+            </div>
+            <div class="chart">
+                <h4>Sales & Revenue</h4>
+                <div id="line-chart"></div> <!-- ApexChart will render here -->
+            </div>
+        </section>
+
+        <!-- Recent Sales Table -->
+        <section class="recent-sales">
+            <h4>Recent Sales</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Invoice</th>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01 Jan 2045</td>
+                        <td>INV-0123</td>
+                        <td>Jhon Doe</td>
+                        <td>$123</td>
+                        <td>Paid</td>
+                        <td><button class="btn-detail">Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>01 Jan 2045</td>
+                        <td>INV-0124</td>
+                        <td>Jhon Doe</td>
+                        <td>$123</td>
+                        <td>Paid</td>
+                        <td><button class="btn-detail">Detail</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <!-- ApexCharts Script to Render the Charts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        // Bar Chart for Worldwide Sales
+        var barOptions = {
+            series: [{
+                name: 'Sales',
+                data: [44, 55, 41, 64, 22, 43, 21, 49]
+            }],
+            chart: {
+                type: 'bar',
+                height: 350,
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + "K"
+                    }
+                }
+            }
+        };
+        var barChart = new ApexCharts(document.querySelector("#bar-chart"), barOptions);
+        barChart.render();
+
+        // Line Chart for Sales & Revenue
+        var lineOptions = {
+            series: [{
+                name: "Sales",
+                data: [31, 40, 28, 51, 42, 109, 100]
+            }, {
+                name: "Revenue",
+                data: [11, 32, 45, 32, 34, 52, 41]
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                toolbar: {
+                    show: false
+                }
+            },
+            stroke: {
+                width: 7,
+                curve: 'smooth'
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: ["2023-09-01T00:00:00", "2023-09-02T00:00:00", "2023-09-03T00:00:00", "2023-09-04T00:00:00", "2023-09-05T00:00:00", "2023-09-06T00:00:00", "2023-09-07T00:00:00"],
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'dark',
+                    gradientToColors: ['#FDD835'],
+                    shadeIntensity: 1,
+                    type: 'horizontal',
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                    stops: [0, 100, 100, 100]
+                },
+            },
+            markers: {
+                size: 4
+            },
+            yaxis: {
+                title: {
+                    text: 'Amount ($)'
+                },
+            }
+        };
+        var lineChart = new ApexCharts(document.querySelector("#line-chart"), lineOptions);
+        lineChart.render();
+    </script>
+</body>
+
+</html>
