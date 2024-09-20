@@ -1,5 +1,5 @@
 ![Screenshot (184)](https://github.com/user-attachments/assets/e352cf8a-b6ad-4bf2-aa3d-c88c0f76a37f)
-if dont have any user account then goto signUp page and register your self .
+if you dont have any user account then you goto first signUp page and register your self .
 
 if one time registration complite then you can go to login page automaticly .
 and there give your register email and password 
