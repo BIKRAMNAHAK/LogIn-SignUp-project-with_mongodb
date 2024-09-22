@@ -4,12 +4,13 @@ const controller = require('../Controllers/myControllers')
 const loginController = require('../Controllers/Users/loginUser')
 const registerController = require('../Controllers/Users/registrationUser')
 const usersprofile = require('../Controllers/Users/userProfile')
+const upload = require('../Confring/imageUplode')
 
 router.get('/',controller.defaultController);
 
 //singup page 
 router.get('/signup',registerController.userRegFormController)
-router.post('/signuppost',registerController.userRegFormPostController)
+router.post('/signuppost',upload.single('profile'),registerController.userRegFormPostController)
 
 //login page
 router.get('/login',loginController.userLoginFormController)

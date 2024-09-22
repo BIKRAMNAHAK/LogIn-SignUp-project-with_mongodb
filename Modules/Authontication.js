@@ -19,7 +19,11 @@ const user = new mongoose.Schema({
     password : {
         type : String,
         required : true
+    },
+    path : {
+        type : String,
     }
+
 });
 
 module.exports = mongoose.model('Users', user);

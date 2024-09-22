@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="signup-box">
 			<h2>Signup</h2>
-			<form method="post" action="/signuppost">
+			<form method="post" action="/signuppost" enctype="multipart/form-data">
 				<div class="input-field">
 					<input type="text" id="name" name="name" required>
 					<label for="name">Name</label>
@@ -34,9 +34,14 @@
 					<input type="password" id="confirm-password" name="conpassword" required>
 					<label for="confirm-password">Confirm Password</label>
 				</div>
-				<button class="btn btn-primary" type="submit">Submit</button>
-				
+
+				<div class="input-field"></div>
+					<input type="file" id="name" name="profile" >
+					<br>
+					<button class="btn btn-primary mt-3" type="submit">Submit</button>	
+					<hr class="border border-dark">
 				<p class="already-account">Already have an account? <a href="/login">Login</a></p>
+				</div>
 			</form>
 		</div>
 	</div>

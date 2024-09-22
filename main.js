@@ -9,11 +9,13 @@ const bodyParser = require('body-parser')
 const Router = require('./Routres/Routers');
 const dataBase = require('./Confring/dataBase')
 const cookie_parser = require('cookie-parser')
+const multer = require('./Confring/imageUplode')
 
 app.set('view engine','ejs')
 app.set('views',myPath)
 
 app.use(express.static(myPath))
+app.use('/uplodeFile' , express.static(path.join(__dirname , 'uplodeFile')))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookie_parser())
