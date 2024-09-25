@@ -18,7 +18,7 @@ const userRegFormPostController = async (req , res) => {
                     email : req.body.email,
                     phone : req.body.phone,
                     password : hashPassword,
-                    path : req.file.path
+                    path: req.file ? req.file.path : null
                    }
                    const UserData = new authModule(UserInfo)
                    await UserData.save()
